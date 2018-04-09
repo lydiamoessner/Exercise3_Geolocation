@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css" /> <!-- This is normalize.css, which resets basic/default styling across browsers, making design and layout easier and more consistent. -->
+
+        <link rel="stylesheet" href="./css/main.css" /> <!-- This links to your custom page styling. -->
+
+        <!-- This links to a webfont, from Google Fonts; this lets you use a font not installed on the user's system. This is Roboto, the Android system font, with all weights, and italics. We'll call this in 'css/main.css' later.  -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+<script type="text/javascript">
+    function showPosition(){
+        navigator.geolocation.getCurrentPosition(showMap);
+    }
+    
+    function showMap(position){
+        // Get location data
+        var latlong = position.coords.latitude + "," + position.coords.longitude;
+        
+        // Set Google map source url
+        var mapLink = "https://maps.googleapis.com/maps/api/staticmap?center="+latlong+"&zoom=16&size=400x300&output=embed";
+        
+        // Create and insert Google map
+        document.getElementById("embedMap").innerHTML = "<img alt='Map Holder' src='"+ mapLink +"'>";
+    }
+</script>
+</head>
+<body>
+<div></div>
+<div class="spacetop"></div>
+<div class="flexbox bordertop">
+  <div class="box">
+  </div>
+  <div class="box">
+  </div>
+  <div class="box">
+  </div>
+</div>
+<div class="breakout">
+  Geolocation Exercise
+</div>
+<button type="button" onclick="showPosition();">Show My Position on Google Maps</button>
+    <div id="embedMap">
+        <!--Google map will be embedded here-->
+    </div>
+<div class="spacebottom"></div>
+</body>
+</html>
